@@ -35,9 +35,9 @@
                 <label for="passConfirm">Confirmar Senha:</label>
                 <input type="text" id="passwordConfirm" name="passwordConfirm"><br><br>
 
-                <label for="perfiloption">Tipo de perfil</label>
+                <label for="profileType">Tipo de perfil</label>
 
-                <select>
+                <select id="profileType" name="proifileType">
 
                     <option value="admin">Administrador</option>
                     <option value="employer">Funcionario</option>
