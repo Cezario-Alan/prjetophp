@@ -1,3 +1,29 @@
+<?php
+
+require 'INCLUDES/db.php';
+require 'INCLUDES/functions.php';
+
+
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])){
+
+    $name = $_SERVER['name'];
+    $email = $_SERVER['email'];
+    $password = $_SERVER['password'];
+    $profileType = $_SERVER['profileType'];
+   
+}
+
+
+
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

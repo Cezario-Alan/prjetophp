@@ -1,4 +1,33 @@
+<?php
 
+//Incluindo arquivos de conexao com o banco de dados
+
+require 'INCLUDES/db.php';
+require 'INCLUDES/functions.php';
+
+$erro_login = '';
+
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])){
+
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+}
+
+if(doLogin($email,$password,$conn)){
+
+    header('Location: conteudo.php');
+    exit();
+
+}else{
+
+    $erro_login = "Email e ou senha incorretos";
+
+}
+
+
+
+?>
 
 
 
