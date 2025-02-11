@@ -5,13 +5,20 @@ require 'INCLUDES/functions.php';
 
 
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])){
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
     $name = $_SERVER['name'];
     $email = $_SERVER['email'];
     $password = $_SERVER['password'];
     $profileType = $_SERVER['profileType'];
-   
+
+    if (registerUser($name, $email, $password, $profileType, $conn)) {
+
+        $sucess_register = 'cadastro realizado com sucesso!!';
+    } else {
+
+        $erro_reister = 'Erro ao cadastrar. Email ja cadastrado';
+    }
 }
 
 
@@ -26,35 +33,37 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])){
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
 </head>
+
 <body>
     <form method="post">
         <div class="container">
 
-            
+
             <section>
-        
+
                 <h1>cadastro</h1>
-                <?php if($erro_cadastro): ?>
-                <p class="erro"><?php echo $erro_cadastro; ?></p>
+                <?php if ($erro_reister): ?>
+                    <p class="erro"><?php echo $erro_reister; ?></p>
 
                 <?php endif; ?>
 
-                <?php if(isset($sucess_cadastro)): ?>
-                <p class="sucess"><?php echo $sucess_cadastro; ?></p>
+                <?php if (isset($sucess_register)): ?>
+                    <p class="sucess"><?php echo $sucess_register; ?></p>
 
                 <?php endif; ?>
 
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name"><br><br>
-        
+
                 <label for="email">E-mail:</label>
                 <input type="text" id="email" name="email"><br><br>
-        
+
                 <label for="pass">Senha:</label>
                 <input type="text" id="password" name="password"><br><br>
 
@@ -69,32 +78,33 @@ if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])){
                     <option value="employer">Funcionario</option>
 
 
-                 </select><br><br>
-        
+                </select><br><br>
 
 
-                 <input type="submit" value="cadastrar">
-                 <p>Fazer <a href="login.php">Login</a></p>
 
-                
-                 
-                
-        
-        
-        
+                <input type="submit" value="cadastrar">
+                <p>Fazer <a href="login.php">Login</a></p>
+
+
+
+
+
+
+
             </section>
-            
-        
-        
-        
-        
-        </div>
-        
-        
-            </form>
-            
-        
 
-    
+
+
+
+
+        </div>
+
+
+    </form>
+
+
+
+
 </body>
+
 </html>
