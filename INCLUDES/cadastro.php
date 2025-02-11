@@ -8,9 +8,20 @@
 <body>
     <form method="post">
         <div class="container">
+
+            
             <section>
         
                 <h1>cadastro</h1>
+                <?php if($erro_cadastro): ?>
+                <p class="erro"><?php echo $erro_cadastro; ?></p>
+
+                <?php endif; ?>
+
+                <?php if(isset($sucess_cadastro)): ?>
+                <p class="sucess"><?php echo $sucess_cadastro; ?></p>
+
+                <?php endif; ?>
 
                 <label for="name">Nome:</label>
                 <input type="text" id="name" name="name"><br><br>
@@ -27,7 +38,7 @@
                 <label for="perfiloption">Tipo de perfil</label>
 
                 <select>
-                    
+
                     <option value="admin">Administrador</option>
                     <option value="employer">Funcionario</option>
 

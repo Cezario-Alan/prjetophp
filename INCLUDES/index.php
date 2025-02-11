@@ -12,6 +12,18 @@
 
         <h1>Login</h1>
 
+        <?php if($erro_login): ?>
+        <p class="erro"><?php echo $erro_login;?></p> 
+
+        <?php endif; ?>
+
+        <?php if(isset($Sucess_login)): ?>
+
+         <p class = "sucess"><?php echo $Sucess_login; ?></p> 
+
+        <?php endif; ?>
+
+
         <label for="email">E-mail:</label>
         <input type="text" id="email" name="email"><br><br>
 
