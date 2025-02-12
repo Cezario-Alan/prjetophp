@@ -3,6 +3,8 @@
 require 'INCLUDES/db.php';
 require 'INCLUDES/functions.php';
 
+$erro_register = " ";
+
 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
@@ -12,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     $password = $_SERVER['password'];
     $profileType = $_SERVER['profileType'];
 
-    if (registerUser($name, $email, $password, $profileType, $conn)) {
+    if (registerUser($name, $email,$password, $profileType, $conn)) {
 
         $sucess_register = 'cadastro realizado com sucesso!!';
     } else {
@@ -41,15 +43,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 </head>
 
 <body>
-    <form method="post">
+    <form method="POST">
         <div class="container">
 
 
             <section>
 
                 <h1>cadastro</h1>
-                <?php if ($erro_reister): ?>
-                    <p class="erro"><?php echo $erro_reister; ?></p>
+                <?php if ($erro_register): ?>
+                    <p class="erro"><?php echo $erro_register; ?></p>
 
                 <?php endif; ?>
 
@@ -83,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
 
                 <input type="submit" value="cadastrar">
-                <p>Fazer <a href="login.php">Login</a></p>
+                <p>Fazer <a href="index.php">Login</a></p>
 
 
 

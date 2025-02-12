@@ -4,7 +4,7 @@
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$dbName = '';
+$dbName = 'sistema_produtos';
 
 //Criar conexao com o banco de dados
 

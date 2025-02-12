@@ -5,34 +5,33 @@
 require 'INCLUDES/db.php';
 require 'INCLUDES/functions.php';
 
+
+
+
 $erro_login = '';
 
-if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login'])){
+if($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logar'])){
 
     $email = $_POST['email'];
     $password = $_POST['password'];
+
+    if(doLogin($email,$password,$conn)){
+
+        header('Location: conteudo.php');
+        exit();
     
-
-}
-
-if(doLogin($email,$password,$conn)){
-
-    header('Location: conteudo.php');
-    exit();
-
-}else{
-
-    $erro_login = "Email e ou senha incorretos";
+    }else{
+    
+        $erro_login = "Email e ou senha incorretos";
+    
+    }
+    
 
 }
 
 
 
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +41,7 @@ if(doLogin($email,$password,$conn)){
     <title>Login</title>
 </head>
 <body>
-    <form method="post">
+    <form method="POST">
 <div class="container">
     <section>
 
@@ -67,7 +66,7 @@ if(doLogin($email,$password,$conn)){
         <input type="text" id="password" name="password"><br><br>
          <input type="submit" value="Logar">
 
-         <p>Fazer  <a href="cadastro.html">cadastro</a></p>
+         <p>Fazer  <a href="cadastro.php">cadastro</a></p>
         
 
 

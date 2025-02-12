@@ -15,7 +15,7 @@ function registerUser($name,$email,$password,$profileType,$conn){
 
         $passHash = password_hash($password,PASSWORD_DEFAULT);
 
-        $stmt = $conn = $conn -> prepare("INSERT INTO user(userName,email,userPassword,profileType) VALUES (?,?,?,?)");
+        $stmt = $conn = $conn -> prepare("INSERT INTO users(userName,email,userPassword,profileType) VALUES (?,?,?,?)");
 
         $stmt ->bind_param("ssss",$name,$email,$passHash,$profileType);
 
@@ -31,7 +31,7 @@ function doLogin($email,$password,$conn){
 
     //CRUD
 
-    $stmt = $conn -> prepare("SELECT id,userName,userPassword,profileType FROM  user WHERE email = ?");
+    $stmt = $conn -> prepare("SELECT user_id,userName,userPassword,profileType FROM  users WHERE email = ?");
     
     $stmt -> blind_param("s", $email);
 
@@ -50,8 +50,9 @@ function doLogin($email,$password,$conn){
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user ['userName'];
 
-
+        return true;
     }
+    return false;
 
 
 
