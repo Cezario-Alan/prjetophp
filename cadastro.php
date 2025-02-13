@@ -8,22 +8,23 @@ $sucess_register = "";
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $_POST['userPassword'];
     $passwordConfirm = $_POST['passwordConfirm']; 
     $profileType = $_POST['profileType']; 
 
-    // Validação básica
+    
     if (empty($name) || empty($email) || empty($password) || empty($profileType)) {
         $erro_register = "Todos os campos são obrigatórios.";
     } elseif ($password !== $passwordConfirm) {
         $erro_register = "As senhas não coincidem.";
     } else {
-        // Criptografa a senha
-        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        
 
         // Tenta registrar o usuário
-        if (registerUser($name, $email, $hashedPassword, $profileType, $conn)) {
+        if (registerUser($name, $email, $Password, $profileType, $conn)) {
             $sucess_register = 'Cadastro realizado com sucesso!';
+
+            header("Location: index.php");
         } else {
             $erro_register = 'Erro ao cadastrar. E-mail já cadastrado.';
         }
@@ -37,6 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="CSS/main.css">
 </head>
 <body>
     <form method="POST">
@@ -57,8 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
                 <label for="email">E-mail:</label>
                 <input type="email" id="email" name="email" required><br><br>
 
-                <label for="password">Senha:</label>
-                <input type="password" id="password" name="password" required><br><br>
+                <label for="senha">Senha:</label>
+                <input type="password" id="userPassword" name="userPassword" required><br><br>
 
                 <label for="passwordConfirm">Confirmar Senha:</label>
                 <input type="password" id="passwordConfirm" name="passwordConfirm" required><br><br>
