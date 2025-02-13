@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+
 
 
 
@@ -24,40 +24,26 @@ function registerUser($name, $email, $password, $profileType, $conn)
 }
 
 // funcao para fazer Login
-
-
-
-function doLogin($email,$password,$conn){
-
-    //prepara a query  SQL para buscar o usuário pelo email
-    $stmt = $conn->prepare("SELECT user_id,userName,userPassword FROM users WHERE email = ?");
-
-    //associa o parâmetro da query com a variável $email
-    $stmt->bind_param("s",$email);
-
-    //executar a query 
+function doLogin($email, $password, $conn) {
+    $stmt = $conn->prepare("SELECT user_id, userName, userPassword, profileType FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
     $stmt->execute();
-    //pegar o resulta da query
     $result = $stmt->get_result();
-
-    ////converter o resultado em um array associativo
     $user = $result->fetch_assoc();
 
-    //verificar se o usuário foi encontrado e se a senha está correta
-    if($user && password_verify($password,$user['userPassword']) ){
-        //caso o login for bem sucedido
+
+    if ($user && password_verify($password, $user['userPassword'])) {
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_name'] = $user['userName'];
-        return true;
-
+        $_SESSION['profileType'] = $user['profileType'];
+        return true;  
     }
-    return false;
+
+    return false;  
 }
 
 
 
-
-//Cadastrar produto
 
  function registerProduct($usuario_id,$codigoProduto,$nomeProduto,$descricaoProduto,$categoria,$quant,$preco,$dataEntrada,$dataValidade,$localizacao,$status,$obs,$conn){
 

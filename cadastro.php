@@ -19,12 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
         $erro_register = "As senhas não coincidem.";
     } else {
         
-
-        // Tenta registrar o usuário
-        if (registerUser($name, $email, $Password, $profileType, $conn)) {
+   
+        if (registerUser($name, $email, $password, $profileType, $conn)) {
             $sucess_register = 'Cadastro realizado com sucesso!';
-
+            
+        
             header("Location: index.php");
+            exit;  
         } else {
             $erro_register = 'Erro ao cadastrar. E-mail já cadastrado.';
         }
@@ -44,11 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     <form method="POST">
         <div class="container">
             <section>
-
-
                 <h1>CADASTRO</h1>
-
-                <h1>Cadastro</h1>
 
                 <?php if ($erro_register): ?>
                     <p class="erro"><?php echo $erro_register; ?></p>
