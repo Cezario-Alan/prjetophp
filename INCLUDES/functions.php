@@ -4,7 +4,7 @@ session_start();
 
 
 
-//Criando funcoes
+//Criando funcões
 
 
 //Cadastrar usuario

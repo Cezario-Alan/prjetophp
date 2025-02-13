@@ -5,14 +5,13 @@ body {
 
 h1 {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    
     color: #f1f5f9; }
 
 section {
     background-color: #3b82f6; 
-    width: 300px;
-    height: 500px;
+    width: 1100px;
+    height: 600px;
     padding: 14px;
     border-radius: 8px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
@@ -24,8 +23,7 @@ input {
     border: none;
     padding: 4px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+   
 }
 
 .container {
@@ -33,4 +31,11 @@ input {
     justify-content: center;
     align-items: center;
     height: 100vh;
+}
+
+form input{
+
+    margin: auto;
+    width: 30%;
+    padding-top: 6px;
 }

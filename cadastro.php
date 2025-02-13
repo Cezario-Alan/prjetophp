@@ -3,7 +3,7 @@
 require 'INCLUDES/db.php';
 require 'INCLUDES/functions.php';
 
-$erro_register = " ";
+$erro_register = "";
 
 
 
@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
+    <link rel="stylesheet" href="CSS/main.css">
 </head>
 
 <body>
@@ -49,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
             <section>
 
-                <h1>cadastro</h1>
+                <h1>CADASTRO</h1>
                 <?php if ($erro_register): ?>
                     <p class="erro"><?php echo $erro_register; ?></p>
 
