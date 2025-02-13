@@ -46,7 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logar'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+<<<<<<< HEAD
     <link rel="stylesheet" href="CSS/main.css">
+=======
+<<<<<<< HEAD
+    <link rel="stylesheet" href="CSS/main.css">
+=======
+    
+>>>>>>> 85e7eb4dade6a83ae0324aa19568dd1bb6b7e0fd
+>>>>>>> b3f04e8d5a9a3dc0b9157ad41e476820fa9b4243
 </head>
 
 <body>

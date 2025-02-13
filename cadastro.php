@@ -44,7 +44,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     <form method="POST">
         <div class="container">
             <section>
+
+
+                <h1>CADASTRO</h1>
+
                 <h1>Cadastro</h1>
+
                 <?php if ($erro_register): ?>
                     <p class="erro"><?php echo $erro_register; ?></p>
                 <?php endif; ?>
