@@ -5,7 +5,7 @@ require 'INCLUDES/functions.php';
 
 //Validando se foi passado o id do produto;
 
-if (!isset($_GET['id'])) {
+if (!isset($_GET['user_id'])) {
 
     header('Location: conteudo.php');
     exit();
@@ -52,7 +52,7 @@ $user_id = $_SESSION['user_id'];
 
         <form method="POST">
             <input type="text" name="brand" placeholder="brand" value="<?php echo $product['brand']; ?>" required>
-            <input type="text" name="modelo" placeholder="quantidade" value="<?php echo $product['quantidade']; ?>" required>
+            <input type="text" name="modelo" placeholder="quantidade" value="<?php echo $product['quantity']; ?>" required>
             <input type="date" name="validity" placeholder="validity" value="<?php echo $product['validity']; ?>" required>
             <button type="submit" name="edit_product">Salvar Alterações</button>
 
