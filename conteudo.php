@@ -92,7 +92,7 @@ if ($result && $result->num_rows > 0) {
                         <?php foreach ($products as $product) : ?>
                             <tr>
                             <tr>
-                                 <td><?php echo htmlspecialchars($product['productName']); ?></td>
+                                 <td><?php echo htmlspecialchars($product['id_product']); ?></td>
                                 <td><?php echo htmlspecialchars($product['productName']); ?></td>
                                 <td><?php echo htmlspecialchars($product['category']); ?></td>
                                 <td><?php echo htmlspecialchars($product['quantity']); ?></td>

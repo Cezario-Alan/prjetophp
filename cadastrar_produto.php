@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
     $description = trim($_POST['description']);
     $category = trim($_POST['category']);
     $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : null;
-    $unitPrice = isset($_POST['unitPrice']) ? floatval($_POST['unitPrice']) : null;
+    $unitPrice = isset($_POST['unitPrice']);
     $supplier = trim($_POST['supplier']);
     $entryDate = $_POST['entryDate'];
     $expiryDate = $_POST['expiryDate'];
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
     <div class="container">
         <form method="POST">
             <section id="cadastroProduto">
-                <h1>Gestão de Produtos</h1>
+                <h1>Gestão de Produtos(admin)</h1>
 
                 <?php if (isset($error_message)): ?>
                     <p class="erro"><?php echo $error_message; ?></p>
