@@ -45,22 +45,27 @@ function doLogin($email, $password, $conn) {
 
 
 
- function registerProduct($usuario_id,$codigoProduto,$nomeProduto,$descricaoProduto,$categoria,$quant,$preco,$dataEntrada,$dataValidade,$localizacao,$status,$obs,$conn){
-
-    $stmt = $conn->prepare("INSERT INTO produtos (usuario_id, codigoProduto, nomeProduto, descricaoProduto, categoria, quant, preco, dataEntrada, dataValidade, localizacao, stat, obs) 
+function registerProduct($id_employer, $productName, $description, $category, $quantity, $unitPrice, $supplier, $entryDate, $expiryDate, $location, $productStatus, $note, $conn) {
+    
+    // Preparar a query SQL para inserção
+    $stmt = $conn->prepare("INSERT INTO products (id_employer, productName, description, category, quantity, unitPrice, supplier, entryDate, expiryDate, location, productStatus, note) 
         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
+    // Verifica se a preparação da query foi bem-sucedida
+    if (!$stmt) {
+        die("Erro na preparação da query: " . $conn->error);
+    }
 
-    $stmt->bind_param("iisssidsdsss", $usuario_id,$codigoProduto,$nomeProduto, $descricaoProduto, $categoria, $quant, $preco,$dataEntrada,$dataValidade,$localizacao,$status,$obs);
+    // Bind dos parâmetros para evitar SQL Injection
+    $stmt->bind_param("isssidsdssss", $id_employer, $productName, $description, $category, $quantity, $unitPrice, $supplier, $entryDate, $expiryDate, $location, $productStatus, $note);
 
+    // Executa a query e retorna true ou false
     return $stmt->execute();
-
-
 }
 
 //Visualizar produto
 
-function viwProduct(){}
+
 
 // Editar produto
 
