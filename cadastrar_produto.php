@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
     $productName = trim($_POST['productName']);
     $description = trim($_POST['description']);
     $category = trim($_POST['category']);
-    $quantity = isset($_POST['quantity']) ? intval($_POST['quantity']) : null;
+    $quantity = isset($_POST['quantity']);
     $unitPrice = isset($_POST['unitPrice']);
     $supplier = trim($_POST['supplier']);
     $entryDate = $_POST['entryDate'];
@@ -121,7 +121,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
                     <input type="text" id="note" name="note">
                 </div>
 
-                <button type="submit" name="register_product">Cadastrar</button>
+                <input type="submit" name="register_product" ></input>
+              
+</form>
             </section>
         </form>
     </div>

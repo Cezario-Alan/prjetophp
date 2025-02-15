@@ -65,7 +65,7 @@ if ($result && $result->num_rows > 0) {
 </head>
 
 <body>
-    <h2>PRODUTOS EM ESTOQUE</h2>
+    <h2>PRODUTOS EM ESTOQUE(admin)</h2>
     <div class="container">
 <section>
     
@@ -92,22 +92,20 @@ if ($result && $result->num_rows > 0) {
                         <?php foreach ($products as $product) : ?>
                             <tr>
                             <tr>
-                                 <td><?php echo htmlspecialchars($product['id_product']); ?></td>
-                                <td><?php echo htmlspecialchars($product['productName']); ?></td>
-                                <td><?php echo htmlspecialchars($product['category']); ?></td>
-                                <td><?php echo htmlspecialchars($product['quantity']); ?></td>
-                                <td>R$ <?php echo number_format($product['unitPrice'], 2, ',', '.'); ?></td>
-                                <td><?php echo htmlspecialchars($product['supplier'] ?? 'N/A'); ?></td>
-                                <td><?php echo htmlspecialchars($product['entryDate']); ?></td>
-                                <td><?php echo htmlspecialchars($product['expiryDate']); ?></td>
-                                <td><?php echo htmlspecialchars($product['location']); ?></td>
-                                <td><?php echo htmlspecialchars($product['productStatus'] ?? 'Sem status'); ?></td>
-                                <td><?php echo htmlspecialchars($product['description']); ?></td>
-                                <td><?php echo htmlspecialchars($product['note'] ?? 'Sem observações'); ?></td>
+                                 <td><?php echo ($product['id_product']); ?></td>
+                                <td><?php echo ($product['productName']); ?></td>
+                                <td><?php echo ($product['category']); ?></td>
+                                <td><?php echo ($product['quantity']); ?></td>
+                                <td>R$ <?php echo ($product['unitPrice']); ?></td>
+                                <td><?php echo ($product['supplier'] ?? 'N/A'); ?></td>
+                                <td><?php echo ($product['entryDate']); ?></td>
+                                <td><?php echo ($product['expiryDate']); ?></td>
+                                <td><?php echo ($product['location']); ?></td>
+                                <td><?php echo ($product['productStatus'] ?? 'Sem status'); ?></td>
+                                <td><?php echo ($product['description']); ?></td>
+                                <td><?php echo ($product['note'] ?? 'Sem observações'); ?></td>
                             </tr>
-                            <!-- <a href="viw_product.php?id=<?php echo $product['id']; ?>">Visualizar</a> |
-                                    <a href="edit_product.php?id=<?php echo $product['id']; ?>">Editar</a> | -->
-                            <!-- <a href="?remover=<?php echo $product['id']; ?>" onclick="return confirm('Tem certeza?')">Remover</a> -->
+                          
                             </td>
                             </tr>
                         <?php endforeach; ?>
@@ -118,6 +116,10 @@ if ($result && $result->num_rows > 0) {
                     <?php endif; ?>
                 </tbody>
             </table>
+
+            <a href="cadastrar_produto.php"><input type="submit" value="Cadastro" id="registerPage" name="registerPage" ></a>
+            <a href="editar_produto.php"><input type="submit" value = "Editar" id ="editPage" name="editPage"></a>
+            
 </section>
     </div>
 </body>

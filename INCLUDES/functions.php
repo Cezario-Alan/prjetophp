@@ -31,7 +31,8 @@ function doLogin($email, $password, $conn) {
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
 
-
+    //validacao de senha 
+    
     if ($user && password_verify($password, $user['userPassword'])) {
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['user_name'] = $user['userName'];
@@ -57,7 +58,7 @@ function registerProduct($id_employer, $productName, $description, $category, $q
     }
 
     // Bind dos parâmetros para evitar SQL Injection
-    $stmt->bind_param("isssidsdssss", $id_employer, $productName, $description, $category, $quantity, $unitPrice, $supplier, $entryDate, $expiryDate, $location, $productStatus, $note);
+    $stmt->bind_param("isssisssssss", $id_employer, $productName, $description, $category, $quantity, $unitPrice, $supplier, $entryDate, $expiryDate, $location, $productStatus, $note);
 
     // Executa a query e retorna true ou false
     return $stmt->execute();

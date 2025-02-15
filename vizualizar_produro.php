@@ -2,10 +2,10 @@
 require 'INCLUDES/db.php';
 require 'INCLUDES/functions.php';
 
-// if(!isset($_SESSION['user_id'])){
-//     header('Location: index.php');
-//     exit();
-// }
+if(!isset($_SESSION['user_id'])){
+    header('Location: index.php');
+    exit();
+}
 
 // verificar se o ID do usuário foi passado
 
@@ -45,7 +45,7 @@ if(!$product){
         <h1>Detalhes do produto</h1>
         <a href="conteudo.php"></a>
 
-    <p><strong>Nome:</strong> <?php echo $product['Name']; ?></p>
+    <p><strong>Nome:</strong> <?php echo $product['productName']; ?></p>
     <p><strong>Categoria:</strong> <?php echo $product['category']; ?></p>
     <p><strong>Quantidade:</strong> <?php echo $product['quantity']; ?></p>
     <p><strong>Preço Unitário:</strong> <?php echo $product['unitPrice']; ?></p>

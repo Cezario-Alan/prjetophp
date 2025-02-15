@@ -5,7 +5,7 @@ require 'INCLUDES/functions.php';
 
 //Validando se foi passado o id do produto;
 
-if (!isset($_GET['user_id'])) {
+if (isset($_GET['user_id'])) {
 
     header('Location: conteudo.php');
     exit();
@@ -13,7 +13,7 @@ if (!isset($_GET['user_id'])) {
 
 //Validacao de usuario cadastrado
 
-if (!isset($_SESSION['user_id'])) {
+if (isset($_SESSION['user_id'])) {
 
     header('Location: index.php');
     exit();
