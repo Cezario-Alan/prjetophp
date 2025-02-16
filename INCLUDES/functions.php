@@ -70,14 +70,43 @@ function registerProduct($id_employer, $productName, $description, $category, $q
 
 // Editar produto
 
-function editProduct(){}
+function editProduct($product_id, $productName, $description, $category, $quantity, $unitPrice, $supplier, $entryDate, $expiryDate, $location, $productStatus, $note, $conn) {
+
+    // Preparar a query SQL para atualização
+    $stmt = $conn->prepare("UPDATE products SET productName=?, description=?, category=?, quantity=?, unitPrice=?, supplier=?, entryDate=?, expiryDate=?, location=?, productStatus=?, note=? WHERE id_product = ?");
+
+    // Verifica se a preparação da query foi bem-sucedida
+    if (!$stmt) {
+        die("Erro na preparação da query: " . $conn->error);
+    }
+
+    // Bind dos parâmetros
+    $stmt->bind_param("sssidsdssssi", $productName, $description, $category, $quantity, $unitPrice, $supplier, $entryDate, $expiryDate, $location, $productStatus, $note, $product_id);
+
+    // Executa a query e retorna true ou false
+    return $stmt->execute();
+}
 
 
 
 //Deletar produto
 
-function delectProduct(){}
+function delectProduct($product_id,$conn) {
 
+    // Preparar a query SQL para atualização
+    $stmt = $conn->prepare("DELETE FROM products  WHERE id_product=?");
+
+    // Verifica se a preparação da query foi bem-sucedida
+    if (!$stmt) {
+        die("Erro na preparação da query: " . $conn->error);
+    }
+
+    // Bind dos parâmetros
+    $stmt->bind_param("i",$product_id);
+
+    // Executa a query e retorna true ou false
+    return $stmt->execute();
+}
 
 
 

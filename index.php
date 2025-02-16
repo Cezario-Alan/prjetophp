@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logar'])) {
 
             switch ($profile) {
                 case 'employer':
-                    header('Location: conteudo.php');
+                    header('Location: conteudoEmployer.php');
                     exit();
                 case 'admin':
                     header('Location: conteudo.php');

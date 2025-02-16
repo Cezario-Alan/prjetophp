@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
     $note = $_POST['note'];
     $user_id = $_SESSION['user_id'];
 
-    //Chamando a funcao de cadastrar produto
+    //chamando a variavel cadastrar produto
     if (registerProduct($user_id, $product_id, $productName, $description, $category, $quantity, $unitPrice, $dataEntry, $valitDate, $location, $status, $note, $conn)) {
         $sucess_product = 'Produto cadastrado com sucesso!';
     } else {
@@ -32,15 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
     }
 }
 
-// Processar a remoção do produto
-if (isset($_GET['delectProduct'])) {
-    $product_id = $_GET['delectProduct'];
-    if (delectProduct($product_id, $conn)) {
-        $sucess_product = 'Produto removido com sucesso!';
-    } else {
-        $erro_product = 'Erro ao remover produto';
-    }
-}
+
 
 // Buscar os produtos do banco de dados
 $products = [];
@@ -62,11 +54,11 @@ if ($result && $result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos em Estoque</title>
-    <link rel="stylesheet" href="CSS/table.css">
+    <link rel="stylesheet"    href="CSS/table.css">
 </head>
 
 <body>
-    <h2>PRODUTOS EM ESTOQUE(admin)</h2>
+    <h2>PRODUTOS EM ESTOQUE</h2>
     <div class="container">
         <section>
 
@@ -118,20 +110,12 @@ if ($result && $result->num_rows > 0) {
                 </tbody>
             </table>
 
+           
+             <a href="logout.php"><input type="submit" value="Sair" id="registerPage" name="registerPage"></a>
+            
+           
 
-            <a href="cadastrar_produto.php"><input type="submit" value="Cadastro" id="registerPage" name="registerPage"></a>
-            <a href="logout.php"><input type="submit" value="Sair" id="registerPage" name="registerPage"></a>
 
-            <form action="editar_produto.php" method="POST">
-                <input type="number" placeholder="Digite o ID do produto" id="id_product" name="id_product" required>
-                <input type="submit" value="Editar" id="editPage" name="editPage">
-
-            </form>
-
-            <form action="" method="GET" style="display: inline;">
-                <input type="hidden" name="delectProduct" value="<?php echo $product['id_product']; ?>">
-                <input type="submit" value="Deletar" id="editPage">
-            </form>
         </section>
     </div>
 </body>
