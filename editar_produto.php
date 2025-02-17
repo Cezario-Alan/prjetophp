@@ -132,6 +132,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_product'])) {
 
         <label for="note">Observações</label><br><br>
         <input type="text" id="note" name="note" value="<?php echo $products['note']; ?>"><br><br>
+        <input type="hidden" name="id_product" value="<?php echo $product_id; ?>">
+
 
         <input   type="submit" name="edit_product" value="Editar"></input>
     </form>

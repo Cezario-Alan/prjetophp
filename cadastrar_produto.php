@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
     $productName = trim($_POST['productName']);
     $description = trim($_POST['description']);
     $category = trim($_POST['category']);
-    $quantity = isset($_POST['quantity']);
+    $quantity = trim($_POST['quantity']);
     $unitPrice = trim($_POST['unitPrice']);
     $supplier = trim($_POST['supplier']);
     $entryDate = $_POST['entryDate'];
@@ -93,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
 
 
                     <label for="quantity">Quantidade:</label>
-                    <input type="number" id="quantity" name="quantity" required><br>
+                    <input type="number" id="quantity" name="quantity" min = 0 required><br>
 
 
                     <label for="unitPrice">Preço Unitário:</label>
