@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
         <form method="POST">
             <h1>CADASTRO DE PRODUTOS</h1>
             <section id="cadastroProduto">
-              
+
 
                 <?php if (isset($error_message)): ?>
                     <p class="erro"><?php echo $error_message; ?></p>
@@ -73,72 +73,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
                 <?php endif; ?>
 
                 <div class="container">
-                    
-                        <label for="productName">Nome:</label>
-                        <input type="text" id="productName" name="productName" required><br>
-                    
-                    
-                        <label for="category">Categoria:</label><br>
-                        <select id="category" name="category" required>
-                            <option value="">Selecione uma categoria</option>
-                            <option value="Açougue">Açougue</option>
-                            <option value="Frios e laticínios">Frios e laticínios</option>
-                            <option value="Adega e bebidas">Adega e bebidas</option>
-                            <option value="Higiene e limpeza">Higiene e limpeza</option>
-                            <option value="Hortifruti e mercearia">Hortifruti e mercearia</option>
-                            <option value="Padaria">Padaria</option>
-                            <option value="Enlatados">Enlatados</option>
-                            <option value="Cereais">Cereais</option>
-                        </select><br><br>
-                    
-                    
-                        <label for="quantity">Quantidade:</label>
-                        <input type="number" id="quantity" name="quantity" required><br>
-                    
-                    
-                        <label for="unitPrice">Preço Unitário:</label>
-                        <input type="text" id="unitPrice" name="unitPrice" required><br>
-                    
-                    
-                        <label for="supplier">Fornecedor:</label>
-                        <input type="text" id="supplier" name="supplier" required><br>
-                    
-                    
-                        <label for="entryDate">Data Entrada:</label>
-                        <input type="date" id="entryDate" name="entryDate" required><br>
-                    
-                    
-                        <label for="expiryDate">Vencimento:</label>
-                        <input type="date" id="expiryDate" name="expiryDate" required><br>
-                    
-                        <label for="productStatus">Status:</label><br>
-                        <select id="productStatus" name="productStatus"><
+
+                    <label for="productName">Nome:</label>
+                    <input type="text" id="productName" name="productName" required><br>
+
+
+                    <label for="category">Categoria:</label><br>
+                    <select id="category" name="category" required>
+                        <option value="">Selecione uma categoria</option>
+                        <option value="Açougue">Açougue</option>
+                        <option value="Frios e laticínios">Frios e laticínios</option>
+                        <option value="Adega e bebidas">Adega e bebidas</option>
+                        <option value="Higiene e limpeza">Higiene e limpeza</option>
+                        <option value="Hortifruti e mercearia">Hortifruti e mercearia</option>
+                        <option value="Padaria">Padaria</option>
+                        <option value="Enlatados">Enlatados</option>
+                        <option value="Cereais">Cereais</option>
+                    </select><br><br>
+
+
+                    <label for="quantity">Quantidade:</label>
+                    <input type="number" id="quantity" name="quantity" required><br>
+
+
+                    <label for="unitPrice">Preço Unitário:</label>
+                    <input type="text" id="unitPrice" name="unitPrice" required><br>
+
+
+                    <label for="supplier">Fornecedor:</label>
+                    <input type="text" id="supplier" name="supplier" required><br>
+
+
+                    <label for="entryDate">Data Entrada:</label>
+                    <input type="date" id="entryDate" name="entryDate" required><br>
+
+
+                    <label for="expiryDate">Vencimento:</label>
+                    <input type="date" id="expiryDate" name="expiryDate" required><br>
+
+                    <label for="productStatus">Status:</label><br>
+                    <select id="productStatus" name="productStatus">
+                        <
                             <option value="">Selecione um status</option>
                             <option value="Em estoque">Em estoque</option>
                             <option value="Estoque mínimo ">Estoque mínimo </option>
                             <option value="próximo da validade">próximo da validade</option>
-                        </select><br><br>
-                    
-                    
-                        <label for="location">Local:</label>
-                        <input type="text" id="location" name="location" placeholder="Ex: Corredor A, Prateleira 5 (Digite A5)" required><br>
-                    
-                    
-                        <label for="description">Descrição:</label>
-                        <input type="text" id="description" name="description" required><br>
-                    
-                    
-                        <label for="note">Observação:</label>
-                        <input type="text" id="note" name="note" > <br>
-                    
-                    <button type="submit" name="register_product"  id = "register_produc">Cadastrar</button>
+                    </select><br><br>
+
+
+                    <label for="location">Local:</label>
+                    <input type="text" id="location" name="location" placeholder="Ex: Corredor A, Prateleira 5 (Digite A5)" required><br>
+
+
+                    <label for="description">Descrição:</label>
+                    <input type="text" id="description" name="description" required><br>
+
+
+                    <label for="note">Observação:</label>
+                    <input type="text" id="note" name="note"> <br>
+
+                    <input type="submit" name="register_product" id="register_produc">Cadastrar</button>
 
                 </div>
 
         </form>
         </section>
         </form>
-    
+
 </body>
 
 </html>

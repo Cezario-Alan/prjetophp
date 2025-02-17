@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_product'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/editarProd.css">
+    <link rel="stylesheet" href="CSS/editarPro.css">
     <title>Editar Produto</title>
 </head>
 
@@ -133,7 +133,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_product'])) {
         <label for="note">Observações</label><br><br>
         <input type="text" id="note" name="note" value="<?php echo $products['note']; ?>"><br><br>
 
-        <button type="submit" name="edit_product">Editar</button>
+        <input   type="submit" name="edit_product" value="Editar"></input>
     </form>
 </section>
 

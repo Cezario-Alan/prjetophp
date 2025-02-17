@@ -9,23 +9,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['userPassword'];
-    $passwordConfirm = $_POST['passwordConfirm']; 
-    $profileType = $_POST['profileType']; 
+    $passwordConfirm = $_POST['passwordConfirm'];
+    $profileType = $_POST['profileType'];
 
-    
+
     if (empty($name) || empty($email) || empty($password) || empty($profileType)) {
         $erro_register = "Todos os campos são obrigatórios.";
     } elseif ($password !== $passwordConfirm) {
         $erro_register = "As senhas não coincidem.";
     } else {
-        
-   
+
+
         if (registerUser($name, $email, $password, $profileType, $conn)) {
             $sucess_register = 'Cadastro realizado com sucesso!';
-            
-        
+
+
             header("Location: index.php");
-            exit;  
+            exit;
         } else {
             $erro_register = 'Erro ao cadastrar. E-mail já cadastrado.';
         }
@@ -35,12 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <link rel="stylesheet" href="CSS/cadastroFunc.css">
 </head>
+
 <body>
     <form method="POST">
         <div class="container">
@@ -68,17 +70,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
                 <input type="password" id="passwordConfirm" name="passwordConfirm" required><br>
 
                 <label for="profileType">Tipo de perfil:</label><br>
-                <select id="profileType" name="profileType"> 
+                <select id="profileType" name="profileType">
                     <div class="colorSelect">
                         <option value="admin">Administrador</option>
                         <option value="employer">Funcionário</option>
                     </div>
                 </select><br><br>
 
-                <input type="submit" name="register"  id="register" value="Cadastrar">
+                <input type="submit" name="register" id="register" value="Cadastrar">
                 <p>Fazer <a href="index.php">Login</a></p>
             </section>
         </div>
     </form>
 </body>
+
 </html>
