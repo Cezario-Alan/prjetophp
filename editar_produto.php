@@ -1,4 +1,4 @@
-<?php
+ <?php
 session_start();
 
 require 'INCLUDES/db.php';
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_product'])) {
         $erro_edition = "Erro ao editar produto";
     }
 }
-?>
+?> 
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -65,7 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_product'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/editarProd.css">
     <title>Editar Produto</title>
 </head>
 
@@ -79,14 +79,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_product'])) {
         <p class="erro_edition"><?php echo $erro_edition; ?></p>
     <?php endif; ?>
 
-    <section class="container">
+    <h1>EDITAR PRODUTO</h1>
+
+    <section>
     <form method="post">
-        <input type="hidden" name="id_product" value="<?php echo $product_id; ?>">
+        <!-- <input type="hidden" name="id_product" value="<?php echo $product_id; ?>"> -->
 
-        <label for="productName">Nome do Produto</label>
-        <input type="text" id="productName" name="productName" value="<?php echo $products['productName']; ?>" required>
+        <label for="productName">Nome do Produto</label><br>
+        <input type="text" id="productName" name="productName" value="<?php echo $products['productName']; ?>" required> <br>
 
-        <label for="category">Categoria</label>
+        <label for="category">Categoria</label><br>
         <select name="category" id="category">
             <option value="">Selecione uma categoria</option>
             <option value="Açougue" <?php echo ($products['category'] == 'Açougue') ? 'selected' : ''; ?>>Açougue</option>
@@ -97,39 +99,39 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['edit_product'])) {
             <option value="Padaria" <?php echo ($products['category'] == 'Padaria') ? 'selected' : ''; ?>>Padaria</option>
             <option value="Enlatados" <?php echo ($products['category'] == 'Enlatados') ? 'selected' : ''; ?>>Enlatados</option>
             <option value="Cereais" <?php echo ($products['category'] == 'Cereais') ? 'selected' : ''; ?>>Cereais</option>
-        </select>
+        </select><br><br>
 
-        <label for="quantity">Quantidade em Estoque</label>
-        <input type="number" id="quantity" name="quantity" value="<?php echo $products['quantity']; ?>" required>
+        <label for="quantity">Quantidade em Estoque</label><br><br>
+        <input type="number" id="quantity" name="quantity" value="<?php echo $products['quantity']; ?>" required><br>
 
-        <label for="unitPrice">Preço</label>
-        <input type="text" id="unitPrice" name="unitPrice" value="<?php echo $products['unitPrice']; ?>">
+        <label for="unitPrice">Preço</label><br><br>
+        <input type="text" id="unitPrice" name="unitPrice" value="<?php echo $products['unitPrice']; ?>"><br>
 
-        <label for="supplier">Fornecedor</label>
-        <input type="text" id="supplier" name="supplier" value="<?php echo $products['supplier']; ?>">
+        <label for="supplier">Fornecedor</label><br><br>
+        <input type="text" id="supplier" name="supplier" value="<?php echo $products['supplier']; ?>"><br>
 
-        <label for="entryDate">Data de entrada</label>
-        <input type="date" id="entryDate" name="entryDate" value="<?php echo $products['entryDate']; ?>">
+        <label for="entryDate">Data de entrada</label><br><br>
+        <input type="date" id="entryDate" name="entryDate" value="<?php echo $products['entryDate']; ?>"><br>
 
-        <label for="expiryDate">Data de validade</label>
-        <input type="date" id="expiryDate" name="expiryDate" value="<?php echo $products['expiryDate']; ?>">
+        <label for="expiryDate">Data de validade</label><br><br>
+        <input type="date" id="expiryDate" name="expiryDate" value="<?php echo $products['expiryDate']; ?>"><br>
 
-        <label for="location">Localização no Armazém</label>
-        <input type="text" id="location" name="location" value="<?php echo $products['location']; ?>">
+        <label for="location">Localização no Armazém</label><br><br>
+        <input type="text" id="location" name="location" value="<?php echo $products['location']; ?>"><br>
 
-        <label for="productStatus">Status</label>
+        <label for="productStatus">Status</label><br><br>
         <select name="productStatus" id="productStatus">
             <option value="">Selecione o Status</option>
             <option value="Em estoque" <?php echo ($products['productStatus'] == 'Em estoque') ? 'selected' : ''; ?>>Em estoque</option>
             <option value="Estoque mínimo" <?php echo ($products['productStatus'] == 'Estoque mínimo') ? 'selected' : ''; ?>>Estoque mínimo</option>
             <option value="próximo da validade" <?php echo ($products['productStatus'] == 'próximo da validade') ? 'selected' : ''; ?>>Próximo da validade</option>
-        </select>
+        </select><br><br>
 
-        <label for="description">Descrição</label>
-        <input type="text" id="description" name="description" value="<?php echo $products['description']; ?>">
+        <label for="description">Descrição</label><br><br>
+        <input type="text" id="description" name="description" value="<?php echo $products['description']; ?>"><br>
 
-        <label for="note">Observações</label>
-        <input type="text" id="note" name="note" value="<?php echo $products['note']; ?>">
+        <label for="note">Observações</label><br><br>
+        <input type="text" id="note" name="note" value="<?php echo $products['note']; ?>"><br><br>
 
         <button type="submit" name="edit_product">Editar</button>
     </form>

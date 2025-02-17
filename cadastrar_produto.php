@@ -53,15 +53,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão de Produtos (Admin)</title>
-    <link rel="stylesheet" href="CSS/cadPro.css">
+    <title>CADASTRO</title>
+    <link rel="stylesheet" href="CSS/cadastroProd.css">
 </head>
 
 <body>
     <div class="container">
         <form method="POST">
+            <h1>CADASTRO DE PRODUTOS</h1>
             <section id="cadastroProduto">
-                <h1>Gestão de Produtos(admin)</h1>
+              
 
                 <?php if (isset($error_message)): ?>
                     <p class="erro"><?php echo $error_message; ?></p>
@@ -74,10 +75,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
                 <div class="container">
                     
                         <label for="productName">Nome:</label>
-                        <input type="text" id="productName" name="productName" required>
+                        <input type="text" id="productName" name="productName" required><br>
                     
                     
-                        <label for="category">Categoria:</label>
+                        <label for="category">Categoria:</label><br>
                         <select id="category" name="category" required>
                             <option value="">Selecione uma categoria</option>
                             <option value="Açougue">Açougue</option>
@@ -88,49 +89,50 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register_product'])) 
                             <option value="Padaria">Padaria</option>
                             <option value="Enlatados">Enlatados</option>
                             <option value="Cereais">Cereais</option>
-                        </select>
+                        </select><br><br>
                     
                     
                         <label for="quantity">Quantidade:</label>
-                        <input type="number" id="quantity" name="quantity" required>
+                        <input type="number" id="quantity" name="quantity" required><br>
                     
                     
                         <label for="unitPrice">Preço Unitário:</label>
-                        <input type="text" id="unitPrice" name="unitPrice" required>
+                        <input type="text" id="unitPrice" name="unitPrice" required><br>
                     
                     
                         <label for="supplier">Fornecedor:</label>
-                        <input type="text" id="supplier" name="supplier" required>
+                        <input type="text" id="supplier" name="supplier" required><br>
                     
                     
                         <label for="entryDate">Data Entrada:</label>
-                        <input type="date" id="entryDate" name="entryDate" required>
+                        <input type="date" id="entryDate" name="entryDate" required><br>
                     
                     
                         <label for="expiryDate">Vencimento:</label>
-                        <input type="date" id="expiryDate" name="expiryDate" required>
+                        <input type="date" id="expiryDate" name="expiryDate" required><br>
                     
-                        <label for="productStatus">Status:</label>
-                        <select id="productStatus" name="productStatus">
+                        <label for="productStatus">Status:</label><br>
+                        <select id="productStatus" name="productStatus"><
                             <option value="">Selecione um status</option>
                             <option value="Em estoque">Em estoque</option>
                             <option value="Estoque mínimo ">Estoque mínimo </option>
-                            <option value="próximo da validade">próximo da validade/option>
-                        </select>
+                            <option value="próximo da validade">próximo da validade</option>
+                        </select><br><br>
                     
                     
                         <label for="location">Local:</label>
-                        <input type="text" id="location" name="location" required>
+                        <input type="text" id="location" name="location" placeholder="Ex: Corredor A, Prateleira 5 (Digite A5)" required><br>
                     
                     
                         <label for="description">Descrição:</label>
-                        <input type="text" id="description" name="description" required>
+                        <input type="text" id="description" name="description" required><br>
                     
                     
                         <label for="note">Observação:</label>
-                        <input type="text" id="note" name="note">
+                        <input type="text" id="note" name="note" > <br>
                     
-                    <input type="submit" name="register_product"></input>
+                    <button type="submit" name="register_product"  id = "register_produc">Cadastrar</button>
+
                 </div>
 
         </form>

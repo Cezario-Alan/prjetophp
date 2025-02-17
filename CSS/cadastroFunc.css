@@ -12,7 +12,7 @@ h1 {
 section {
     background-color: #3b82f6; 
     width: 300px;
-    height: 500px;
+    height: 550px;
     padding: 14px;
     border-radius: 8px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2); 
@@ -26,6 +26,31 @@ input {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 20px;
+    width: 290px;
+    
+}
+#register{
+
+    height: 30px;
+    width: 290px;
+
+
+}
+
+select{
+
+    background-color: #e2e8f0; 
+    border-radius: 3px;
+    border: none;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 290px;
+
+
 }
 
 .container {
@@ -34,3 +59,10 @@ input {
     align-items: center;
     height: 100vh;
 }
+
+#register:hover{
+
+
+    background-color: aquamarine;
+}
+

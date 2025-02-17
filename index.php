@@ -44,25 +44,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logar'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/login.css">
 </head>
 <body>
     <form method="POST">
         <div class="container">
             <section>
-                <h1>Login</h1>
+                <h1>LOGIN</h1>
 
                 <?php if ($erro_login): ?>
                     <p class="erro"><?php echo $erro_login; ?></p>
                 <?php endif; ?>
 
-                <label for="email">E-mail:</label>
+               <br><br> <label for="email">E-mail:</label><br><br>
                 <input type="email" id="email" name="email" required><br><br>
 
-                <label for="password">Senha:</label>
+                <label for="password">Senha:</label><br><br>
                 <input type="password" id="userPassword" name="userPassword" required><br><br>
 
-                <input type="submit" name="logar" value="Logar">
+                <input type="submit" name="logar" id="logar" value="Logar">
 
                 <p>Fazer <a href="cadastro.php">cadastro</a></p>
             </section>

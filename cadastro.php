@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="CSS/main.css">
+    <link rel="stylesheet" href="CSS/cadastroFunc.css">
 </head>
 <body>
     <form method="POST">
@@ -65,15 +65,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['register'])) {
                 <input type="password" id="userPassword" name="userPassword" required><br><br>
 
                 <label for="passwordConfirm">Confirmar Senha:</label>
-                <input type="password" id="passwordConfirm" name="passwordConfirm" required><br><br>
+                <input type="password" id="passwordConfirm" name="passwordConfirm" required><br>
 
-                <label for="profileType">Tipo de perfil:</label>
+                <label for="profileType">Tipo de perfil:</label><br>
                 <select id="profileType" name="profileType"> 
-                    <option value="admin">Administrador</option>
-                    <option value="employer">Funcionário</option>
+                    <div class="colorSelect">
+                        <option value="admin">Administrador</option>
+                        <option value="employer">Funcionário</option>
+                    </div>
                 </select><br><br>
 
-                <input type="submit" name="register" value="Cadastrar">
+                <input type="submit" name="register"  id="register" value="Cadastrar">
                 <p>Fazer <a href="index.php">Login</a></p>
             </section>
         </div>

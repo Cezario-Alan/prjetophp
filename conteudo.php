@@ -62,11 +62,13 @@ if ($result && $result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Produtos em Estoque</title>
-    <link rel="stylesheet" href="CSS/table.css">
+    <link rel="stylesheet" href="CSS/conteudo.css">
 </head>
 
 <body>
-    <h2>PRODUTOS EM ESTOQUE(admin)</h2>
+
+    <h1>PRODUTOS EM ESTOQUE(admin)</h1>
+
     <div class="container">
         <section>
 
@@ -116,22 +118,27 @@ if ($result && $result->num_rows > 0) {
                         </tr>
                     <?php endif; ?>
                 </tbody>
-            </table>
+            </table><br>
 
 
-            <a href="cadastrar_produto.php"><input type="submit" value="Cadastro" id="registerPage" name="registerPage"></a>
-            <a href="logout.php"><input type="submit" value="Sair" id="registerPage" name="registerPage"></a>
+        
+            
+          <div class="buttons">
+              
+                <form action="editar_produto.php" method="POST">
+                    <input type="number" placeholder="Digite o ID do produto" id="id_product" name="id_product" required>
+                    <input type="submit" value="Editar" id="editPage" name="editPage">
+                </form>
+                <form action="" method="GET">
 
-            <form action="editar_produto.php" method="POST">
-                <input type="number" placeholder="Digite o ID do produto" id="id_product" name="id_product" required>
-                <input type="submit" value="Editar" id="editPage" name="editPage">
+                    <input type="hidden" name="delectProduct" value="<?php echo $product['id_product']; ?>">
+                    <input type="submit" value="Deletar" id="editPage">
+                </form>
+                
+                <a href="cadastrar_produto.php"><input type="submit" value="Cadastro" id="registerPage" name="registerPage"></a>
+                <a href="logout.php"><input type="submit" value="Sair" id="registerPage" name="registerPage"></a>
+          </div>
 
-            </form>
-
-            <form action="" method="GET" style="display: inline;">
-                <input type="hidden" name="delectProduct" value="<?php echo $product['id_product']; ?>">
-                <input type="submit" value="Deletar" id="editPage">
-            </form>
         </section>
     </div>
 </body>
